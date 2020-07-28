@@ -1,0 +1,24 @@
+---
+- name: Put Zabbix groups into maint
+  hosts: all
+  gather_facts: false
+  vars:
+    maint_desc: IOS upgrades
+    maint_group: cat_update_lab
+    maint_mins: 90
+    zab_host: 192.168.51.5
+#    zab_user: username
+#    zab_pass: password
+
+  tasks:
+  - name: put the devices undergoing work into maint
+    run_once: True
+    zabbix_maintenance:
+      name: "{{ maint_desc }}"
+      host_groups: 
+        - "{{ maint_group }}"
+      state: present
+      minutes: "{{ maint_mins }}"
+      server_url: "http://{{ zab_host }}/zabbix"
+      login_user: "{{ zab_user }}"
+      login_password: "{{ zab_pass }}"
