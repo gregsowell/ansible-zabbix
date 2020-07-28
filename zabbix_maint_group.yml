@@ -7,8 +7,9 @@
     maint_group: cat_update_lab
     maint_mins: 90
     zab_host: 192.168.51.5
-#    zab_user: username
-#    zab_pass: password
+# gen1_user/pass are custom credentials I use in tower
+#    gen1_user: username
+#    gen1_pass: password
 
   tasks:
   - name: put the devices undergoing work into maint
@@ -20,5 +21,5 @@
       state: present
       minutes: "{{ maint_mins }}"
       server_url: "http://{{ zab_host }}/zabbix"
-      login_user: "{{ zab_user }}"
-      login_password: "{{ zab_pass }}"
+      login_user: "{{ gen1_user }}"
+      login_password: "{{ gen1_pass }}"
