@@ -1,12 +1,12 @@
 ---
 - name: Put Zabbix groups into maint
-  hosts: all
+  hosts: localhost
   gather_facts: false
   vars:
     maint_desc: IOS upgrades
     maint_group: cat_update_lab
     maint_mins: 90
-    zab_host: 192.168.51.5
+    zab_host: 10.1.12.11
 # gen1_user/pass are custom credentials I use in tower
 #    gen1_user: username
 #    gen1_pword: password
